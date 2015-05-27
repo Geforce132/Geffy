@@ -8,7 +8,7 @@ import org.pircbotx.Configuration;
 
 public class Geffy {
 	
-	public static final String VERSION = "v0.1.0";
+	public static final String VERSION = "v0.1.1";
 	public static Bot bot;
 
 	public static void main(String[] args) throws Exception {

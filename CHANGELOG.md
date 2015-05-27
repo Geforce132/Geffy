@@ -2,6 +2,12 @@
 #          Changelog          #
 ###############################
 
+v0.1.1
++ Changed name of #rank to #rate.
++ Fixed randomization of #rate.
++ Changed command prefix from "#" to "~".
+- Removed bl4ckb0t, Maunz, Corobot, and Cadbury from Reference.ignoredUsers.
+
 v0.1
 + Geffy learns how to #givecookie! (added #givecookie command.)
 + Geffy learns how to #rank! (added #rank command.)

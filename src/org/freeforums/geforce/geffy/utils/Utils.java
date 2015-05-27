@@ -40,9 +40,11 @@ public class Utils {
 	/**
 	 * Returns a random number, up to the given maximum.
 	 */
-	public static int getRandomNumber(int max){
+	public static int getRandomNumber(int max, boolean include0){
 		Random random = new Random();
-		return random.nextInt(max);
+		
+		int i = random.nextInt(max + 1);
+		return (i == 0 && !include0 ? 1 : i);
 	}
 	
 	/**
