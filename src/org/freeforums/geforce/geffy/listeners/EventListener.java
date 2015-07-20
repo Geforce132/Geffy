@@ -4,13 +4,15 @@ import org.freeforums.geforce.geffy.commands.ICommand;
 import org.freeforums.geforce.geffy.main.Bot;
 import org.freeforums.geforce.geffy.main.Geffy;
 import org.freeforums.geforce.geffy.main.Reference;
+import org.freeforums.geforce.geffy.misc.CrackedKicker;
 import org.freeforums.geforce.geffy.utils.Utils;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.ConnectEvent;
+import org.pircbotx.hooks.events.JoinEvent;
 import org.pircbotx.hooks.events.MessageEvent;
 import org.pircbotx.hooks.events.PrivateMessageEvent;
 
-public class MessageListener extends ListenerAdapter<Bot> {
+public class EventListener extends ListenerAdapter<Bot> {
 
 	public void onMessage(MessageEvent<Bot> event){		
 		String command = event.getMessage().split(" ")[0];
@@ -58,6 +60,12 @@ public class MessageListener extends ListenerAdapter<Bot> {
 	public void onConnect(ConnectEvent event) throws Exception{
 		for(String channel : Reference.joinedChannels){
 			Geffy.bot.sendIRC().joinChannel(channel);
+		}
+	}
+	
+	public void onJoin(JoinEvent<Bot> event) throws Exception {
+		if(event.getChannel().getName().equals("#GeforceMods") && event.getUser().getNick().startsWith("SCUser_")){
+			CrackedKicker.check(event);
 		}
 	}
 

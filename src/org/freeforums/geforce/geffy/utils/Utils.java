@@ -21,7 +21,7 @@ public class Utils {
 	/**
 	 * Returns a new array containing all the arguments in a command, without the command name itself.
 	 * 
-	 * E.G: "#givecookie Geforce sugar" equals: <p>
+	 * E.G: "~givecookie Geforce sugar" equals: <p>
 	 *      args[0] = Geforce <p>
 	 *      args[1] = sugar
 	 */
@@ -33,6 +33,28 @@ public class Utils {
 		}
 		
 		return args;
+	}
+	
+	public static String arrayToString(String[] args){
+		String string = "";
+		
+		for(int i = 0; i < args.length; i++){
+			string += args[i] + ((i != (args.length - 1)) ? " " : "");
+		}
+		
+		return string;
+	}
+	
+	public static String[] trimArray(String[] args, int trimAmount){
+		String[] array = new String[args.length - trimAmount];
+		
+		if(array.length == 0){ return null; }
+		
+		for(int i = 0; i < array.length; i++){
+			array[i] = args[i];
+		}
+		
+		return array;
 	}
 	
 	//Helpful methods.

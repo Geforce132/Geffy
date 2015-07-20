@@ -2,6 +2,11 @@
 #          Changelog          #
 ###############################
 
+v0.1.2
++ Changed name of MessageListener to EventListener.
++ Geffy is now suspicious of all SCUser_'s joining #GeforceMods, and will check their premium account status when they join. (Added the CrackedKicker feature of bl4ckb0t to Geffy.)
++ Geffy can now rate multi-word objects.
+
 v0.1.1
 + Changed name of #rank to #rate.
 + Fixed randomization of #rate.

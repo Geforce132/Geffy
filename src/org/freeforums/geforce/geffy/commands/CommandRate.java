@@ -8,18 +8,24 @@ import org.pircbotx.hooks.events.PrivateMessageEvent;
 public class CommandRate implements ICommand<MessageEvent, PrivateMessageEvent> {
 
 	public void exeChan(MessageEvent event, String[] args) throws Exception {		
-		if(args.length == 1){ 
-			event.respond("I rate " + args[0] + " a " + Utils.getRandomNumber(5, false) + " out of 5.");
-		}else if(args.length == 2){
-			event.respond("I rate " + args[0] + " a " + Utils.getRandomNumber(Utils.toInt(args[1]), false) + " out of " + Utils.toInt(args[1]));
+		int rateScale = 5;
+						
+		try{
+			rateScale = Integer.parseInt(args[args.length - 1]);
+			event.respond("I rate " + Utils.arrayToString(Utils.trimArray(args, 1)) + " a " + Utils.getRandomNumber(rateScale, false) + " out of " + rateScale);
+		}catch(NumberFormatException e){
+			event.respond("I rate " + Utils.arrayToString(args) + " a " + Utils.getRandomNumber(5, false) + " out of 5.");
 		}
 	}
 
 	public void exePrivate(PrivateMessageEvent event, String[] args) throws Exception {
-		if(args.length == 1){ 
-			event.respond("I rate " + args[0] + " a " + Utils.getRandomNumber(5, false) + " out of 5.");
-		}else if(args.length == 2){
-			event.respond("I rate " + args[0] + " a " + Utils.getRandomNumber(Utils.toInt(args[1]), false) + " out of " + Utils.toInt(args[1]));
+		int rateScale = 5;
+						
+		try{
+			rateScale = Integer.parseInt(args[args.length - 1]);
+			event.respond("I rate " + Utils.arrayToString(Utils.trimArray(args, 1)) + " a " + Utils.getRandomNumber(rateScale, false) + " out of " + rateScale);
+		}catch(NumberFormatException e){
+			event.respond("I rate " + Utils.arrayToString(args) + " a " + Utils.getRandomNumber(5, false) + " out of 5.");
 		}
 	}
 
