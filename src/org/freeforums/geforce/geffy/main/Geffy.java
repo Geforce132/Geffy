@@ -8,12 +8,12 @@ import org.pircbotx.Configuration;
 
 public class Geffy {
 	
-	public static final String VERSION = "v0.1.2";
+	public static final String VERSION = "v0.1.3";
 	public static Bot bot;
 
 	public static void main(String[] args) throws Exception {	
 		Logger.getLogger("").setLevel(Level.OFF);
-		Configuration config = new Configuration.Builder().setVersion(VERSION).setName("Geffy").setRealName("Geforce's assistant, at your service!").setServerHostname("irc.esper.net").addAutoJoinChannel("#Geforce").addListener(new EventListener()).buildConfiguration();
+		Configuration config = new Configuration.Builder().setVersion(VERSION).setName("Geffy").setRealName("Geforce's assistant, at your service!").setServerHostname("irc.esper.net").addAutoJoinChannel("#Geforce").setNickservPassword(SuperSecretSecrets.nickservPassword).addListener(new EventListener()).buildConfiguration();
 	    bot = new Bot(config);
 		bot.startBot();
 	}
