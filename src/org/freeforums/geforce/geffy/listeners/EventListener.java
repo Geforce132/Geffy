@@ -15,8 +15,17 @@ import org.pircbotx.hooks.events.PrivateMessageEvent;
 public class EventListener extends ListenerAdapter<Bot> {
 
 	public void onMessage(MessageEvent<Bot> event){		
-		String command = event.getMessage().split(" ")[0];
+		if(event.getUser().getNick().startsWith("SCUser_") && event.getMessage().startsWith("SecurityCraft version: "))
+		{
+			if(!event.getMessage().split(": ")[1].equals(Reference.scVersion))
+			{
+				event.respond("Please update your SecurityCraft version to " + Reference.scVersion + ". Your version is outdated, and the new one contains bugfixes and new features you can't miss out on! | http://minecraft.curseforge.com/mc-mods/64760-securitycraft-mod");
+				return;
+			}
+		}
 		
+		String command = event.getMessage().split(" ")[0];
+	
 		if(Utils.arrayContains(Reference.ignoredUsers, event.getUser().getNick()) || !event.getMessage().startsWith(Reference.commandPrefix)){ return; }
 
 		for(ICommand cmd : Reference.commands){
