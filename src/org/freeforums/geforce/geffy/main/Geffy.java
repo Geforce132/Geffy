@@ -1,15 +1,20 @@
 package org.freeforums.geforce.geffy.main;
 
-import org.freeforums.geforce.geffy.listeners.MessageListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import org.freeforums.geforce.geffy.listeners.EventListener;
 import org.pircbotx.Configuration;
-import org.pircbotx.PircBotX;
 
 public class Geffy {
+	
+	public static final String VERSION = "v0.1.3";
+	public static Bot bot;
 
-	public static void main(String[] args) throws Exception {
-		Configuration config = new Configuration.Builder().setName("Geffy").setServerHostname("irc.esper.net").addAutoJoinChannel("#Geforce").addListener(new MessageListener()).buildConfiguration();
-		
-		PircBotX bot = new PircBotX(config);
+	public static void main(String[] args) throws Exception {	
+		Logger.getLogger("").setLevel(Level.OFF);
+		Configuration config = new Configuration.Builder().setVersion(VERSION).setName("Geffy").setRealName("Geforce's assistant, at your service!").setServerHostname("irc.esper.net").addAutoJoinChannel("#Geforce").setNickservPassword(SuperSecretSecrets.nickservPassword).addListener(new EventListener()).buildConfiguration();
+	    bot = new Bot(config);
 		bot.startBot();
 	}
 
