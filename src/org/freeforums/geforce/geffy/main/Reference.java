@@ -11,7 +11,7 @@ public class Reference {
 	public static final String commandPrefix = "~";
 	
 	public static ICommand[] commands = new ICommand[]{new CommandHelp(), new CommandRate(), new CommandGiveCookie()};
-    public static String[] joinedChannels = new String[]{"#GeforceMods", "#bl4ckscor3", "#Razz"};	
+    public static String[] joinedChannels = new String[]{"#GeforceMods", "Geforce", "#bl4ckscor3", "#Razz"};	
     public static String[] ignoredUsers = new String[]{"GeffyBot", "Geffy"};	
     
     //Other things.
