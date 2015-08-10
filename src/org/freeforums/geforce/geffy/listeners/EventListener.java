@@ -5,6 +5,7 @@ import org.freeforums.geforce.geffy.main.Bot;
 import org.freeforums.geforce.geffy.main.Geffy;
 import org.freeforums.geforce.geffy.main.Reference;
 import org.freeforums.geforce.geffy.misc.CrackedKicker;
+import org.freeforums.geforce.geffy.misc.MessageHandler;
 import org.freeforums.geforce.geffy.utils.Utils;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.ConnectEvent;
@@ -24,13 +25,13 @@ public class EventListener extends ListenerAdapter<Bot> {
 			}
 		}
 		
-		String command = event.getMessage().split(" ")[0];
+		String message = event.getMessage().split(" ")[0];
 	
 		if(Utils.arrayContains(Reference.ignoredUsers, event.getUser().getNick()) || !event.getMessage().startsWith(Reference.commandPrefix)){ return; }
-
+		
 		for(ICommand cmd : Reference.commands){
 			for(String s : cmd.getAliases()){	
-				if(command.equalsIgnoreCase(Reference.commandPrefix + s)){
+				if(message.equalsIgnoreCase(Reference.commandPrefix + s)){
 					try{
 						cmd.exeChan(event, Utils.getArgsFromCommand(event.getMessage()));
 					}catch(Exception e){
@@ -41,6 +42,8 @@ public class EventListener extends ListenerAdapter<Bot> {
 				}
 			}
 		}
+		
+		MessageHandler.tryRespondingToMessage(event);
 	}
 	
 	public void onPrivateMessage(PrivateMessageEvent<Bot> event){		

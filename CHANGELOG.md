@@ -2,6 +2,10 @@
 #          Changelog          #
 ###############################
 
+v0.1.4
++ Geffy will now nag outdated SCUser_'s to update their mod.
++ Geffy will now reply to certain messages posted in any of the channels he's in.
+
 v0.1.3
 + Added NickServ authentication.
 
