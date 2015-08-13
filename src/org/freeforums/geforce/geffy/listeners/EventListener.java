@@ -27,7 +27,12 @@ public class EventListener extends ListenerAdapter<Bot> {
 		
 		String message = event.getMessage().split(" ")[0];
 	
-		if(Utils.arrayContains(Reference.ignoredUsers, event.getUser().getNick()) || !event.getMessage().startsWith(Reference.commandPrefix)){ return; }
+		if(Utils.arrayContains(Reference.ignoredUsers, event.getUser().getNick())){ return; }
+		
+		if(!event.getMessage().startsWith(Reference.commandPrefix)){
+			MessageHandler.tryRespondingToMessage(event);
+			return;
+		}
 		
 		for(ICommand cmd : Reference.commands){
 			for(String s : cmd.getAliases()){	
@@ -42,8 +47,6 @@ public class EventListener extends ListenerAdapter<Bot> {
 				}
 			}
 		}
-		
-		MessageHandler.tryRespondingToMessage(event);
 	}
 	
 	public void onPrivateMessage(PrivateMessageEvent<Bot> event){		
