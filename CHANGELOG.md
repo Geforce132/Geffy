@@ -2,6 +2,10 @@
 #          Changelog          #
 ###############################
 
+v0.2.0
++ Geffy now has TeamSpeak 3 functionality, and will post a message if a
+  user joins or leaves a channel on breakinbad.net.
+
 v0.1.4
 + Geffy will now nag outdated SCUser_'s to update their mod.
 + Geffy will now reply to certain messages posted in any of the channels he's in.

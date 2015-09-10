@@ -1,5 +1,8 @@
 package org.freeforums.geforce.geffy.utils;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Random;
 
 import org.pircbotx.hooks.events.MessageEvent;
@@ -87,6 +90,43 @@ public class Utils {
 		}
 		
 		return false;
+	}
+    
+    /**
+	 * Output all key / value pairs.
+	 */
+	public static void outputHashMap(HashMap<String, String> hashmap){
+	    Collection<String> cValue = hashmap.values();
+	    Collection<String> cKey = hashmap.keySet();
+	    Iterator<String> itrValue = cValue.iterator();
+	    Iterator<String> itrKey = cKey.iterator();
+		
+		while (itrValue.hasNext() && itrKey.hasNext()){
+			System.out.println(itrKey.next() + ": " + itrValue.next());
+		}
+	}
+	
+	/**
+	 * Returns -1 if the first version is older then the second. <p>
+	 * Returns 0 if they match. <p>
+	 * Returns 1 if the first version is newer then the second. <p>
+	 */
+	public static Integer compareVersions(String str1, String str2) {
+		String[] vals1 = str1.split("\\.");
+		String[] vals2 = str2.split("\\.");
+		
+		int i = 0;
+		
+		while(i < vals1.length && i < vals2.length && vals1[i].equals(vals2[i])){
+			i++;
+		}
+		
+		if(i < vals1.length && i < vals2.length){
+			int diff = Integer.valueOf(vals1[i]).compareTo(Integer.valueOf(vals2[i]));
+			return Integer.signum(diff);
+		}else{
+			return Integer.signum(vals1.length - vals2.length);
+		}
 	}
 
 }

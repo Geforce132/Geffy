@@ -12,7 +12,7 @@ public class CommandRate implements ICommand<MessageEvent, PrivateMessageEvent> 
 						
 		try{
 			rateScale = Integer.parseInt(args[args.length - 1]);
-			event.respond("I rate " + Utils.arrayToString(Utils.trimArray(args, 1)) + " a " + Utils.getRandomNumber(rateScale, false) + " out of " + rateScale);
+			event.respond("I rate " + Utils.arrayToString(Utils.trimArray(args, 1)) + " a " + Utils.getRandomNumber(rateScale, false) + " out of " + rateScale + ".");
 		}catch(NumberFormatException e){
 			event.respond("I rate " + Utils.arrayToString(args) + " a " + Utils.getRandomNumber(5, false) + " out of 5.");
 		}
@@ -23,7 +23,7 @@ public class CommandRate implements ICommand<MessageEvent, PrivateMessageEvent> 
 						
 		try{
 			rateScale = Integer.parseInt(args[args.length - 1]);
-			event.respond("I rate " + Utils.arrayToString(Utils.trimArray(args, 1)) + " a " + Utils.getRandomNumber(rateScale, false) + " out of " + rateScale);
+			event.respond("I rate " + Utils.arrayToString(Utils.trimArray(args, 1)) + " a " + Utils.getRandomNumber(rateScale, false) + " out of " + rateScale + ".");
 		}catch(NumberFormatException e){
 			event.respond("I rate " + Utils.arrayToString(args) + " a " + Utils.getRandomNumber(5, false) + " out of 5.");
 		}

@@ -18,9 +18,29 @@ public class EventListener extends ListenerAdapter<Bot> {
 	public void onMessage(MessageEvent<Bot> event){		
 		if(event.getUser().getNick().startsWith("SCUser_") && event.getMessage().startsWith("SecurityCraft version: "))
 		{
-			if(!event.getMessage().split(": ")[1].equals(Reference.scVersion))
+			String scVersion = event.getMessage().split(": ")[1];
+			
+			if(!scVersion.contains("-beta") && Utils.compareVersions(scVersion.replace("v", ""), Reference.scVersion.replace("v", "")) == -1)
 			{
-				event.respond("Please update your SecurityCraft version to " + Reference.scVersion + ". Your version is outdated, and the new one contains bugfixes and new features you can't miss out on! | http://minecraft.curseforge.com/mc-mods/64760-securitycraft-mod");
+				event.respond("The version of SecurityCraft you're using is outdated. Newer versions contains bugfixes and new features you can't miss out on!  http://minecraft.curseforge.com/mc-mods/64760-securitycraft-mod");
+				return;
+			}
+			
+			if(!scVersion.contains("-beta") && Utils.compareVersions(scVersion.replace("v", ""), Reference.scBetaVersion.replace("v", "").replace("-beta", "")) == -1)
+			{
+				event.respond("You may also download the newest beta version of " + Reference.scBetaVersionOf.replace("-beta", "") + ", " + Reference.scBetaVersion + ". Beta link: " + Reference.scBetaDownloadLink);
+				return;
+			}
+			
+			if(scVersion.contains("-beta") && scVersion.substring(0, 4).matches(Reference.scVersion.substring(0, 4)))
+			{
+				event.respond("The version of SecurityCraft you're using is outdated. Newer versions contains bugfixes and new features you can't miss out on!  http://minecraft.curseforge.com/mc-mods/64760-securitycraft-mod");
+				return;
+			}
+			
+			if(scVersion.contains("-beta") && Utils.compareVersions(scVersion.replace("v", "").replace("-beta", ""), Reference.scBetaVersion.replace("v", "").replace("-beta", "")) == -1)
+			{
+				event.respond("You may also download the newest beta version of " + Reference.scBetaVersionOf.replace("-beta", "") + ", " + Reference.scBetaVersion + ". Beta link: " + Reference.scBetaDownloadLink);
 				return;
 			}
 		}
