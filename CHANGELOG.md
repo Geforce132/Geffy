@@ -2,6 +2,21 @@
 #          Changelog          #
 ###############################
 
+v0.4.0
++ Geffy is now an explosives expert, and can blow up any object using ~explode <object>. 
++ Geffy is now a music legend, and can sing any song by using
+~sing <song name>.*
+
+* Disclaimer: There must be a 'Poorly Singing With Geforce' episode
+of the song for Geffy to be able to sing it.
+
+v0.3.1
++ Geffy is now extra suspicious of all SCUser_'s joining #GeforceMods, and will kick them if they send an "I am using a cracked client! (No Session token found.)" message to #GeforceMods.
+
+v0.3.0
++ Geffy is now a fan of Nerd³, and can quote him on the spot with ~n3quote.
++ Geffy now dislikes MaunzCommit, and will ignore any messages from him.
+
 v0.2.0
 + Geffy now has TeamSpeak 3 functionality, and will post a message if a
   user joins or leaves a channel on breakinbad.net.

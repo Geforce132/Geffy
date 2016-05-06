@@ -1,8 +1,11 @@
 package org.freeforums.geforce.geffy.main;
 
+import org.freeforums.geforce.geffy.commands.CommandExplode;
 import org.freeforums.geforce.geffy.commands.CommandGiveCookie;
 import org.freeforums.geforce.geffy.commands.CommandHelp;
+import org.freeforums.geforce.geffy.commands.CommandN3Quote;
 import org.freeforums.geforce.geffy.commands.CommandRate;
+import org.freeforums.geforce.geffy.commands.CommandSing;
 import org.freeforums.geforce.geffy.commands.ICommand;
 import org.freeforums.geforce.geffy.misc.TS3ActionListener;
 
@@ -13,8 +16,8 @@ public class Reference {
 	//Important variables and arrays.
 	public static final String commandPrefix = "~";
 	
-	public static ICommand[] commands = new ICommand[]{new CommandHelp(), new CommandRate(), new CommandGiveCookie()};
-    public static String[] joinedChannels = new String[]{"#GeforceMods", "#Geforce", "#BreakInBad", "#bl4ckscor3", "#Razz"};	
+	public static ICommand[] commands = new ICommand[]{new CommandHelp(), new CommandRate(), new CommandGiveCookie(), new CommandExplode(), new CommandSing(), new CommandN3Quote()};
+    public static String[] joinedChannels = new String[]{"#GeforceMods", "#Geforce", "#bl4ckscor3", "#Razz", "#Geffy", "#mancave"};
     public static String[] ignoredUsers = new String[]{"Geffy"};
         
     //Other things.

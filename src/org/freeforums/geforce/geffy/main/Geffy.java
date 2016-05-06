@@ -21,7 +21,7 @@ import com.google.gson.GsonBuilder;
 
 public class Geffy {
 
-	public static final String VERSION = "v0.2.0";
+	public static final String VERSION = "v0.4.0";
 	public static Bot bot;
 
 	public static void main(String[] args) throws Exception {	
@@ -47,7 +47,7 @@ public class Geffy {
 
 		//Start the TS3 functionality of Geffy.
 		TS3Config tsConfig = new TS3Config();
-		tsConfig.setHost("breakinbad.net");
+		tsConfig.setHost("geforcemods.net");
 
 		Reference.ts3Query = new TS3Query(tsConfig);
 		Reference.ts3Query.connect();
