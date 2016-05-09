@@ -13,6 +13,7 @@ Command prefix: "~"
 ~givecookie [user]: Gives that person a random type of cookie.
 
 ~rate [thing]: Rates the given thing on a scale of 1-5.
+
 ~rate [thing] [scale]: Rates the given thing from 1 to whatever number you gave it.
 
 ~explode [thing]: Causes the given thing to explode.
