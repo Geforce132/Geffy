@@ -22,7 +22,7 @@ public class EventListener extends ListenerAdapter<Bot> {
 			
 			if(!scVersion.contains("-beta") && Utils.compareVersions(scVersion.replace("v", ""), Reference.scVersion.replace("v", "")) == -1)
 			{
-				event.respond("The version of SecurityCraft you're using is outdated. Newer versions contain bugfixes and new features you can't miss out on! - http://minecraft.curseforge.com/mc-mods/64760-securitycraft-mod");
+				event.respond("Your version of SecurityCraft (" + scVersion + ") is outdated. The latest version (" + Reference.scVersion +") contains important bugfixes and new features you can't miss out on! - https://minecraft.curseforge.com/projects/securitycraft-mod");
 				return;
 			}
 			
@@ -34,7 +34,7 @@ public class EventListener extends ListenerAdapter<Bot> {
 			
 			if(scVersion.contains("-beta") && scVersion.substring(0, 4).matches(Reference.scVersion.substring(0, 4)))
 			{
-				event.respond("The version of SecurityCraft you're using is outdated. Newer versions contain bugfixes and new features you can't miss out on! - http://minecraft.curseforge.com/mc-mods/64760-securitycraft-mod");
+				event.respond("Your version of SecurityCraft (" + scVersion + ") is outdated. The latest version (" + Reference.scVersion +") contains important bugfixes and new features you can't miss out on! - https://minecraft.curseforge.com/projects/securitycraft-mod");
 				return;
 			}
 			
